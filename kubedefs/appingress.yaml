@@ -4,16 +4,16 @@ metadata:
   name: vpro-ingress
   annotations:
     nginx.ingress.kubernetes.io/use-regex: "true"
-  spec:
-    ingressClassName: nginx
-    rules:
-      host: vprofile.hkhinfotech.xyz
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: vproapp-service
-                port:
-                  number: 8080
+spec:  # ← Correct! Same level as metadata
+  ingressClassName: nginx
+  rules:
+  - host: vprofile.hkhinfotech.xyz  # ← Added dash for list item
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: vproapp-service
+            port:
+              number: 8080
