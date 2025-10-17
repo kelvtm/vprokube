@@ -1,0 +1,25 @@
+---
+# 1. Memcached Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vpromc
+  labels:
+    app: vpromc
+spec:
+  # Define the number of Memcached instances (adjust as needed for your cache size)
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vpromc
+  template:
+    metadata:
+      labels:
+        app: vpromc
+    spec:
+      containers:
+        - name: vpromc
+          image: memcached:latest
+          ports:
+            - containerPort: 11211
+              name: vpromc-port
