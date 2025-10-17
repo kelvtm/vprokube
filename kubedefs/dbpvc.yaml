@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: db-pv-claim
   labels:
-    app: vprofile
+    app: vprodb
 spec:
   accessModes:
     - ReadWriteOnce # Can be mounted read-write by a single node
@@ -11,3 +11,4 @@ spec:
     requests:
       storage: 3Gi
   storageClassName: default
+
